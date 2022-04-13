@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  foxglove:
+    # build: ./foxglove
+    image: ghcr.io/jpc/studio:latest
+    command: caddy run
+    volumes:
+      - ./Caddyfile:/src/Caddyfile:ro
+      - ./foxglove_layout.json:/src/foxglove_layout.json:ro
+    ports:
+      - "8080:8080"
+
+  ros-bridge:
+    # build: ./ros-bridge
+    image: ghcr.io/jpc/ros-bridge:latest
+    ports:
+      - "9090"
+
+  carla:
+    image: carlasim/carla:0.9.12
+    command: ./CarlaUE4.sh -RenderOffScreen -nosound
+    ports:
+      - 2000-2002
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: [gpu]
+
+  notebooks:
+    build: ./notebooks
+    restart: always
+    user: "${UID}:${GID}"
+    volumes:
+      - ./notebooks:/notebooks

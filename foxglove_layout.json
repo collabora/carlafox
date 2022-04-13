@@ -1,0 +1,183 @@
+{
+  "layout": {
+    "direction": "row",
+    "first": "3D Panel!1bil7pj",
+    "second": {
+      "first": {
+        "first": "ImageViewPanel!2kotn3g",
+        "second": "ImageViewPanel!45i5bx9",
+        "direction": "column",
+        "splitPercentage": 72.98657718120806
+      },
+      "second": {
+        "first": "Plot!h9hho0",
+        "second": "Plot!35pcdkm",
+        "direction": "row",
+        "splitPercentage": 52.32646363555127
+      },
+      "direction": "column",
+      "splitPercentage": 65.44190665342602
+    },
+    "splitPercentage": 63.50989834135902
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "linkedGlobalVariables": [],
+  "playbackConfig": {
+    "speed": 0.2,
+    "messageOrder": "receiveTime",
+    "timeDisplayMethod": "ROS"
+  },
+  "version": 19,
+  "configById": {
+    "3D Panel!1bil7pj": {
+      "autoSyncCameraState": false,
+      "autoTextBackgroundColor": true,
+      "cameraState": {
+        "targetOffset": [
+          -34.28294970016246,
+          4.125573988518544,
+          0
+        ],
+        "distance": 239.0710131275454,
+        "perspective": true,
+        "phi": 0.7853981633974483,
+        "thetaOffset": 0,
+        "fovy": 0.7853981633974483,
+        "near": 0.01,
+        "far": 5000,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "checkedKeys": [
+        "t:/lidar_ray_cast",
+        "t:/carla/markers/static",
+        "t:/map",
+        "t:/tf",
+        "name:Topics",
+        "t:/carla/ego_vehicle/lidar",
+        "ns:/carla/markers/static:TrafficLight",
+        "t:/carla/markers"
+      ],
+      "clickToPublishPoseTopic": "/move_base_simple/goal",
+      "clickToPublishPointTopic": "/clicked_point",
+      "clickToPublishPoseEstimateTopic": "/initialpose",
+      "clickToPublishPoseEstimateXDeviation": 0.5,
+      "clickToPublishPoseEstimateYDeviation": 0.5,
+      "clickToPublishPoseEstimateThetaDeviation": 0.2617993877991494,
+      "customBackgroundColor": "#000000",
+      "diffModeEnabled": true,
+      "expandedKeys": [
+        "t:/tf",
+        "name:Topics",
+        "t:/carla/markers/static"
+      ],
+      "followMode": "follow-orientation",
+      "followTf": "map",
+      "modifiedNamespaceTopics": [
+        "/carla/markers/static",
+        "/tf"
+      ],
+      "pinTopics": false,
+      "settingsByKey": {},
+      "useThemeBackgroundColor": true
+    },
+    "ImageViewPanel!2kotn3g": {
+      "cameraTopic": "/carla/ego_vehicle/rgb_view/image",
+      "enabledMarkerTopics": [],
+      "customMarkerTopicOptions": [
+        "/lidar_ray_cast",
+        "/carla_map",
+        "/carla/ego_vehicle/lidar"
+      ],
+      "scale": 0.5,
+      "transformMarkers": true,
+      "synchronize": false,
+      "mode": "fit",
+      "zoomPercentage": 72.1875,
+      "offset": [
+        0,
+        33.25
+      ],
+      "pan": {
+        "x": -0.8252852353284936,
+        "y": 3.683521117070864
+      },
+      "rotation": 0,
+      "zoom": 0.8517353858982668
+    },
+    "ImageViewPanel!45i5bx9": {
+      "cameraTopic": "/carla/ego_vehicle/semantic_segmentation_front/image",
+      "enabledMarkerTopics": [],
+      "customMarkerTopicOptions": [
+        "/lidar_ray_cast",
+        "/carla_map",
+        "/carla/ego_vehicle/lidar"
+      ],
+      "scale": 0.5,
+      "transformMarkers": true,
+      "synchronize": false,
+      "mode": "fit",
+      "zoomPercentage": 72.1875,
+      "offset": [
+        0,
+        33.25
+      ],
+      "pan": {
+        "x": 0.17471476467150637,
+        "y": 3.683521117070864
+      },
+      "rotation": 0,
+      "zoom": 0.8517353858982668
+    },
+    "Plot!h9hho0": {
+      "paths": [
+        {
+          "value": "/carla/ego_vehicle/vehicle_status.velocity",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "minYValue": "",
+      "maxYValue": "",
+      "showLegend": false,
+      "xAxisVal": "timestamp",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "sidebarDimension": 240,
+      "followingViewWidth": 100
+    },
+    "Plot!35pcdkm": {
+      "paths": [
+        {
+          "value": "/carla/ego_vehicle/vehicle_status.acceleration.linear.x",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "minYValue": "0",
+      "maxYValue": "10",
+      "showLegend": false,
+      "xAxisVal": "timestamp",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "sidebarDimension": 240,
+      "followingViewWidth": 100
+    }
+  }
+}
