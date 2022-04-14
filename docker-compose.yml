@@ -2,6 +2,7 @@ version: "3.5"
 
 services:
   foxglove:
+    restart: always
     # build: ./foxglove
     image: ghcr.io/jpc/studio:latest
     command: caddy run
@@ -12,12 +13,14 @@ services:
       - "8080:8080"
 
   ros-bridge:
+    restart: always
     # build: ./ros-bridge
     image: ghcr.io/jpc/ros-bridge:latest
     ports:
       - "9090"
 
   carla:
+    restart: always
     image: carlasim/carla:0.9.12
     command: ./CarlaUE4.sh -RenderOffScreen -nosound
     ports:
