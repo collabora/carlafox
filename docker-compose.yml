@@ -14,6 +14,7 @@ services:
 
   ros-bridge:
     restart: always
+    init: true
     # build: ./ros-bridge
     image: ghcr.io/jpc/ros-bridge:latest
     ports:
@@ -21,6 +22,7 @@ services:
 
   carla:
     restart: always
+    init: true
     image: carlasim/carla:0.9.12
     command: ./CarlaUE4.sh -RenderOffScreen -nosound
     ports:
