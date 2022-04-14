@@ -13,11 +13,7 @@ handle_path /foxglove {
 
 redir / /notebooks/notebooks/CARLA%20💜%20Foxglove%20demo.ipynb
 
-@ws {
-    header Connection *Upgrade*
-    header Upgrade websocket
-}
-reverse_proxy @ws ros-bridge:9090 {
+reverse_proxy /ros-bridge ros-bridge:9090 {
   header_up Host localhost:9090
 }
 
