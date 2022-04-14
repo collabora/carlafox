@@ -6,6 +6,13 @@ file_server {
   root /src
 }
 
+handle_path /foxglove {
+  root * /src
+  file_server
+}
+
+redir / /notebooks/notebooks/CARLA%20💜%20Foxglove%20demo.ipynb
+
 @ws {
     header Connection *Upgrade*
     header Upgrade websocket
