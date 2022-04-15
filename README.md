@@ -19,3 +19,16 @@ How to (re)start the system:
 ```
 
 Afterwards navigate to [http://localhost:8080](http://localhost:8080) to explore the system.
+
+## Hacking
+
+If you wish to hack on the intro notebook (or borrow the ideas for your own project) make sure you use
+the `cleanup-notebook.py` tool before commiting your changes. It clears the outputs cells leaving only
+the ones marked with `#keep-output` (our UI buttons) and also does a metadata cleanup to keep the Git
+history useful and avoid trivial merge conflicts (you can read more about the latter in
+[the nbdev documentation](https://nbdev.fast.ai/clean.html)).
+
+```bash
+python3 -m pip install -r dev-requirements.txt
+python3 cleanup-notebook.py notebooks/CARLA\ 💜\ Foxglove\ demo.ipynb
+```
