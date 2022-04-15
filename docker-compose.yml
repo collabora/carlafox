@@ -10,7 +10,7 @@ services:
       - ./Caddyfile:/src/Caddyfile:ro
       - ./foxglove_layout.json:/src/foxglove_layout.json:ro
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
 
   ros-bridge:
     restart: always
