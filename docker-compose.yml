@@ -36,6 +36,5 @@ services:
   notebooks:
     build: ./notebooks
     restart: always
-    user: "${MYUID}:${MYGID}"
     volumes:
       - ./notebooks:/notebooks
