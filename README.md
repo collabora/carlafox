@@ -2,10 +2,14 @@
 
 ## Requirements
 
-Requires docker-compose v1.28.0+, which you can verify by running:
+The demo requires an NVIDIA GPU, the NVIDIA container runtime and docker-compose v1.28.0+.
+You can check for these dependencies by running:
 
-```
-docker-compose version
+```console
+$ docker info |grep Runtimes:
+Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux nvidia runc
+$ docker-compose version --short
+1.29.2
 ```
 
 Currently the system only works on `linux/x86_64` machines (mostly because of the CARLA server).
