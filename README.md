@@ -18,8 +18,8 @@ Currently the system only works on `linux/x86_64` machines (mostly because of th
 
 How to (re)start the system:
 
-```
-~/.local/bin/docker-compose rm -sf && ~/.local/bin/docker-compose pull && ~/.local/bin/docker-compose up -d --build --force-recreate
+```bash
+MYUID=$UID MYGID=$GID docker-compose rm -sf && docker-compose pull && docker-compose up -d --build --force-recreate
 ```
 
 Afterwards navigate to [http://localhost:8080](http://localhost:8080) to explore the system.
