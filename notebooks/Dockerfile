@@ -8,7 +8,8 @@ RUN apt-get update && \
 USER $NB_UID
 
 RUN python -m pip install --upgrade pip && \
-    python -m pip install -vvv carla==0.9.12 ipywidgets voila nbgitpuller
+    python -m pip install carla==0.9.12 ipywidgets voila \
+                          nbgitpuller jupyter-server-proxy
 
 # RUN apt-get update && \
 #     DEBIAN_FRONTEND=noninteractive \
