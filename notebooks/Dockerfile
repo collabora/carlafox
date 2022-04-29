@@ -1,6 +1,8 @@
 FROM jupyter/base-notebook:python-3.8.8
 
-RUN python -m pip install --upgrade pip && \
+RUN apt-get update && \
+    apt-get install git && \
+    python -m pip install --upgrade pip && \
     python -m pip install -vvv carla==0.9.12 ipywidgets voila nbgitpuller
 
 # RUN apt-get update && \
