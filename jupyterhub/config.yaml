@@ -1,0 +1,69 @@
+# This file can update the JupyterHub Helm chart's default configuration values.
+#
+# For reference see the configuration reference and default values, but make
+# sure to refer to the Helm chart version of interest to you!
+#
+# Introduction to YAML:     https://www.youtube.com/watch?v=cdLNKUoMc6c
+# Chart config reference:   https://zero-to-jupyterhub.readthedocs.io/en/stable/resources/reference.html
+# Chart default values:     https://github.com/jupyterhub/zero-to-jupyterhub-k8s/blob/HEAD/jupyterhub/values.yaml
+# Available chart versions: https://jupyterhub.github.io/helm-chart/
+#
+singleuser:
+  image:
+    name: ghcr.io/collabora/carlafox
+    tag: latest
+    pullPolicy: Always
+  extraEnv:
+    CARLA_HOSTNAME: localhost
+  defaultUrl: /notebooks/carlafox/notebooks/CARLA%20💜%20Foxglove%20demo.ipynb
+  lifecycleHooks:
+    postStart:
+      exec:
+        command:
+          - sh
+          - -c
+          - |
+            echo "_default_max_message_size = 100 * 1024 * 1024" >> /opt/conda/lib/python3.8/site-packages/tornado/websocket.py &&
+            /opt/conda/bin/gitpuller https://github.com/collabora/carlafox main carlafox &&
+            jupyter trust carlafox/notebooks/*.ipynb
+  extraResource:
+    limits:
+      nvidia.com/gpu: "1"
+  storage:
+    extraVolumes:
+      - name: shm-volume
+        emptyDir:
+          medium: Memory
+    extraVolumeMounts:
+      - name: shm-volume
+        mountPath: /dev/shm
+  extraContainers:
+    - name: carla
+      image: carlasim/carla:0.9.12
+      command: ["./CarlaUE4.sh", "-RenderOffScreen", "-nosound"]
+    - name: foxglove
+      image: ghcr.io/collabora/foxglove-studio:latest
+    - name: ros-bridge
+      image: ghcr.io/collabora/ros-bridge:latest
+      env:
+        - name: CARLA_HOSTNAME
+          value: localhost
+        - name: ROSBRIDGE_WEBSOCKET_EXTERNAL_PORT
+          value: "8080"
+
+ingress:
+  enabled: true
+
+hub:
+  config:
+    GitHubOAuthenticator:
+      client_id: 7fadb8d6dd39a6c80b51
+      client_secret: cb7a873354568a39eb89d60d9e39bf4459555f69
+      oauth_callback_url: http://viking.kurg.org:8080/hub/oauth_callback
+    Authenticator:
+      admin_users:
+        - jpc
+        - zoq
+        - makaveli10
+    JupyterHub:
+      authenticator_class: github
