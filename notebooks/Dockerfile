@@ -9,7 +9,7 @@ USER $NB_UID
 
 RUN python -m pip install --upgrade pip && \
     python -m pip install carla==0.9.12 ipywidgets voila \
-                          nbgitpuller jupyter-server-proxy
+                          nbgitpuller 'nbclassic>=0.2.8'
 
 # RUN apt-get update && \
 #     DEBIAN_FRONTEND=noninteractive \
