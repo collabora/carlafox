@@ -58,7 +58,7 @@ hub:
   config:
     GitHubOAuthenticator:
       client_id: 7fadb8d6dd39a6c80b51
-      client_secret: cb7a873354568a39eb89d60d9e39bf4459555f69
+      client_secret: <secret>
       oauth_callback_url: http://viking.kurg.org:8080/hub/oauth_callback
     Authenticator:
       admin_users:
