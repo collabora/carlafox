@@ -1,5 +1,7 @@
 # The CARLA🚖&nbsp;&nbsp;💜&nbsp;&nbsp;ROS🦾&nbsp;&nbsp;💜&nbsp;&nbsp;Foxglove📊 demo
 
+[![Join the chat at https://gitter.im/collabora-carlafox/community](https://badges.gitter.im/collabora-carlafox/community.svg)](https://gitter.im/collabora-carlafox/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Requirements
 
 The demo requires an NVIDIA GPU, the NVIDIA container runtime and docker-compose v1.28.0+.
