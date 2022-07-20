@@ -15,10 +15,14 @@ services:
   ros-bridge:
     restart: always
     init: true
-    # build: ./ros-bridge
-    image: ghcr.io/jpc/ros-bridge:latest
+    image: ghcr.io/collabora/ros-bridge:latest
     ports:
       - "9090"
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: [gpu]
 
   carla:
     restart: always
